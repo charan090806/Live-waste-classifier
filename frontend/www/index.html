@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste AI Tracker</title>
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="logo">
+                <span class="logo-icon">🌿</span>
+                <h1>EcoVision</h1>
+            </div>
+            <p>Real-Time Waste Classification System</p>
+        </header>
+
+        <main class="main-content">
+            <div class="video-container glass-panel">
+                <div class="video-wrapper">
+                    <!-- The webcam stream -->
+                    <video id="webcam" autoplay playsinline></video>
+                    <!-- Overlay for bounding boxes -->
+                    <div id="overlays" class="overlays-layer"></div>
+                    <!-- Loading state -->
+                    <div id="loading" class="camera-status">
+                        <div class="spinner"></div>
+                        <span>Initializing Camera...</span>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="toggleCamera" class="btn primary">
+                        <span class="icon">📷</span> Stop Camera
+                    </button>
+                    <div class="status-indicator">
+                        <span class="dot active" id="apiStatusDot"></span>
+                        <span class="text" id="apiStatusText">System Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-panel">
+                <div class="glass-panel stats-panel">
+                    <h2>Live Detections</h2>
+                    <ul id="detectionsList" class="detections-list">
+                        <li class="empty-state">No objects detected yet</li>
+                    </ul>
+                </div>
+
+                <div class="glass-panel info-panel">
+                    <h3>Supported Categories</h3>
+                    <div class="tags">
+                        <span>Cardboard</span>
+                        <span>Food Organics</span>
+                        <span>Glass</span>
+                        <span>Metal</span>
+                        <span>Trash</span>
+                        <span>Paper</span>
+                        <span>Plastic</span>
+                        <span>Textile</span>
+                        <span>Vegetation</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Hidden canvas for capturing frames to send to backend -->
+        <canvas id="captureCanvas" style="display: none;"></canvas>
+    </div>
+
+    <!-- Scripts -->
+    <script src="components/camera.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
