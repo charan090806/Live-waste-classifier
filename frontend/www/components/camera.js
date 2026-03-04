@@ -10,7 +10,7 @@ class CameraManager {
         this.isActive = false;
         this.stream = null;
         this.processingInterval = null;
-        this.apiEndpoint = 'http://localhost:8000/predict';
+        this.apiEndpoint = 'https://live-waste-classifier.onrender.com/predict';
 
         this.init();
 
